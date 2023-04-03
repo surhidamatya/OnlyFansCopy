@@ -1,16 +1,20 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, FlatList, View } from "react-native";
 import UserCard from "./component/UserCard";
 
 
 
 import users from '../assets/data/users';
-const user = users[0];
 
 export default function Page() {
   return (
     <View style={styles.container}>
-      <UserCard user = {users[0]}/>
-      <UserCard user = {users[1]}/>
+
+      <FlatList 
+      data = {users}
+      renderItem = {(item) => <UserCard user = {item}/>}
+      showsVerticalScrollIndicator = {false}
+      
+      />
     </View>
   );
 }

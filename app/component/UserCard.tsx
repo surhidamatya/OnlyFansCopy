@@ -2,15 +2,16 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from 'react';
 
 const UserCard = (props) => {
-    const user = props.user;
+    const { user } = props;
+
   return (
-    <ImageBackground source= {{uri: user.coverImage}} style={styles.userCard}>
+    <ImageBackground source= {{uri: user.item.coverImage}} style={styles.userCard}>
         <View style = {styles.overlay}/>
-        <Image src = {user.avatar} 
+        <Image src = {user.item.avatar} 
         style = {styles.userImage}/>
         <View>
-        <Text style= {{color: 'white', fontSize: 22, fontWeight: '500'}}>{user.name}</Text>
-        <Text style= {{color: 'white'}}>@{user.handle}</Text>
+        <Text style= {{color: 'white', fontSize: 22, fontWeight: '500'}}>{user.item.name}</Text>
+        <Text style= {{color: 'white'}}>@{user.item.handle}</Text>
         </View>
 
       </ImageBackground>
