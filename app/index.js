@@ -1,19 +1,16 @@
-import { Image, ImageBackground, StyleSheet, FlatList, View } from "react-native";
-import UserCard from "./component/UserCard";
-
-
-
+import { Link } from 'expo-router';
+import { StyleSheet, View, FlatList } from 'react-native';
 import users from '../assets/data/users';
+import UserCard from '../src/components/UserCard';
 
 export default function Page() {
   return (
     <View style={styles.container}>
-
-      <FlatList 
-      data = {users}
-      renderItem = {(item) => <UserCard user = {item}/>}
-      showsVerticalScrollIndicator = {false}
-      
+      <Link href={'/newPost'}>New post</Link>
+      <FlatList
+        data={users}
+        renderItem={({ item }) => <UserCard user={item} />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -22,7 +19,7 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 12,
-    paddingTop: 75
-  }
+    padding: 10,
+    paddingTop: 75,
+  },
 });
